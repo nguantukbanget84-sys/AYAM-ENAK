@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SUTARTI CHICKEN</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-yellow-50 p-6">
+
+  <header class="text-center mb-10">
+    <h1 class="text-4xl font-bold text-yellow-800">SUTARTI CHICKEN</h1>
+    <p class="text-gray-600 mt-2">Warung Ayam Online Lezat & Terjangkau Free ongkir area Solo utara</p>
+  </header>
+
+  <!-- Cart -->
+  <div class="mb-8 max-w-2xl mx-auto bg-white p-4 rounded-2xl shadow">
+    <h2 class="text-xl font-bold mb-2">🛒 Keranjang</h2>
+    <ul id="cartList" class="space-y-2"></ul>
+
+    <div class="flex gap-2 mt-4">
+      <button onclick="checkout()" class="flex-1 bg-yellow-600 text-white p-2 rounded">Checkout</button>
+      <button onclick="clearCart()" class="flex-1 border p-2 rounded">Kosongkan</button>
+    </div>
+  </div>
+
+  <!-- Menu -->
+  <section id="menu" class="grid md:grid-cols-3 gap-6"></section>
+
+  <script>
+    const menu = [
+      { name: "1 Ekor Ayam kampung utuh rica2", price: 120000, img: "https://source.unsplash.com/400x300/?chicken" },
+      { name: "2 Ekor Ayam kampung utuh rica2", price: 220000, img: "https://source.unsplash.com/400x300/?spicy-chicken" },
+      { name: "1 Ekor Ayam merah utuh rica2", price: 120000, img: "https://source.unsplash.com/400x300/?fried-chicken" },
+      { name: "2 Ekor Ayam merah utuh rica2", price: 220000, img: "https://source.unsplash.com/400x300/?grilled-chicken" },
+      { name: "1 Ekor Ayam Boiler utuh rica2", price: 85000, img: "https://source.unsplash.com/400x300/?chicken-food" },
+      { name: "2 Ekor Ayam Boiler utuh rica2", price: 160000, img: "https://source.unsplash.com/400x300/?indonesian-food" },
+      { name: "1 Ekor Ayam kampung utuh opor", price: 120000, img: "https://source.unsplash.com/400x300/?opor" },
+      { name: "2 Ekor Ayam kampung utuh opor", price: 220000, img: "https://source.unsplash.com/400x300/?chicken-curry" },
+      { name: "1 Ekor Ayam Boiler utuh opor", price: 85000, img: "https://source.unsplash.com/400x300/?opor-chicken" },
+      { name: "2 Ekor Ayam Boiler utuh opor", price: 160000, img: "https://source.unsplash.com/400x300/?chicken-opor" },
+      { name: "1 Ekor Ayam merah utuh opor", price: 120000, img: "https://source.unsplash.com/400x300/?fried-chicken" },
+      { name: "2 Ekor Ayam merah utuh opor", price: 220000, img: "https://source.unsplash.com/400x300/?fried-chicken" },
+    ];
+
+    let cart = [];
+
+    function renderMenu() {
+      const menuEl = document.getElementById("menu");
+      menuEl.innerHTML = "";
+
+      menu.forEach((item, index) => {
+        menuEl.innerHTML += `
+          <div class="bg-white p-4 rounded-2xl shadow text-center">
+            <img src="${item.img}" class="h-32 w-full object-cover rounded mb-2" />
+            <h2 class="font-bold">${item.name}</h2>
+            <p>Rp${item.price.toLocaleString()}</p>
+            <div class="flex gap-2 mt-2">
+              <button onclick="addToCart(${index})" class="w-1/2 bg-yellow-500 text-white p-2 rounded">Keranjang</button>
+              <button onclick="orderNow(${index})" class="w-1/2 bg-green-600 text-white p-2 rounded">Pesan</button>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    function renderCart() {
+      const cartEl = document.getElementById("cartList");
+      cartEl.innerHTML = "";
+
+      if (cart.length === 0) {
+        cartEl.innerHTML = "<p class='text-gray-500'>Keranjang kosong</p>";
+        return;
+      }
+
+      cart.forEach((item, index) => {
+        cartEl.innerHTML += `
+          <li class="flex justify-between">
+            ${item.name}
+            <button onclick="removeItem(${index})" class="text-red-500">Hapus</button>
+          </li>
+        `;
+      });
+    }
+
+    function addToCart(index) {
+      cart.push(menu[index]);
+      renderCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
+
+    function clearCart() {
+      cart = [];
+      renderCart();
+    }
+
+    function checkout() {
+      if (cart.length === 0) return alert("Keranjang kosong!");
+
+      const pesan = cart.map(item => item.name).join(", ");
+      const text = `Bu Tarti, Saya temanya mas Wawan mau pesan ${pesan}`;
+      window.open(`https://wa.me/6289524906709?text=${encodeURIComponent(text)}`);
+    }
+
+    function orderNow(index) {
+      const item = menu[index];
+      const text = `Bu Tarti, Saya temanya mas Wawan mau pesan ${item.name}`;
+      window.open(`https://wa.me/6289524906709?text=${encodeURIComponent(text)}`);
+    }
+
+    renderMenu();
+    renderCart();
+  </script>
+
+</body>
+</html>
