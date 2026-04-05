@@ -125,7 +125,7 @@
       if (cart.length === 0) return alert("Keranjang kosong!");
       const pesan = cart.map(i => i.name).join(", ");
       const text = `Bu Tarti, Saya temanya mas Wawan mau pesan ${pesan}`;
-      window.open(`https://wa.me/6289524906709?text=${encodeURIComponent(text)}`);
+      window.open(`https://wa.me/6289524906709?text=${encodeURIComponent(text) "Total: Rp" + total.toLocaleString();}`);
     }
 
     renderMenu();
