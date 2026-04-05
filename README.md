@@ -51,18 +51,18 @@
 
   <script>
     const menu = [
-      { name: "1 Ekor Ayam kampung utuh rica2", price: 120000 },
-      { name: "2 Ekor Ayam kampung utuh rica2", price: 220000 },
-      { name: "1 Ekor Ayam merah utuh rica2", price: 120000 },
-      { name: "2 Ekor Ayam merah utuh rica2", price: 220000 },
-      { name: "1 Ekor Ayam Boiler utuh rica2", price: 85000 },
-      { name: "2 Ekor Ayam Boiler utuh rica2", price: 160000 },
-      { name: "1 Ekor Ayam kampung utuh opor", price: 120000 },
-      { name: "2 Ekor Ayam kampung utuh opor", price: 220000 },
-      { name: "1 Ekor Ayam Boiler utuh opor", price: 85000 },
-      { name: "2 Ekor Ayam Boiler utuh opor", price: 160000 },
-      { name: "1 Ekor Ayam merah utuh opor", price: 120000 },
-      { name: "2 Ekor Ayam merah utuh opor", price: 220000 },
+      { name: "1 Ekor Ayam kampung utuh masak rica2", price: 120000 },
+      { name: "2 Ekor Ayam kampung utuh masak rica2", price: 220000 },
+      { name: "1 Ekor Ayam merah utuh masak rica2", price: 120000 },
+      { name: "2 Ekor Ayam merah utuh masak rica2", price: 220000 },
+      { name: "1 Ekor Ayam Boiler utuh masak rica2", price: 85000 },
+      { name: "2 Ekor Ayam Boiler utuh masak rica2", price: 160000 },
+      { name: "1 Ekor Ayam kampung utuh masak opor", price: 120000 },
+      { name: "2 Ekor Ayam kampung utuh masak opor", price: 220000 },
+      { name: "1 Ekor Ayam Boiler utuh masak opor", price: 85000 },
+      { name: "2 Ekor Ayam Boiler utuh masak opor", price: 160000 },
+      { name: "1 Ekor Ayam merah utuh masak opor", price: 120000 },
+      { name: "2 Ekor Ayam merah utuh masak opor", price: 220000 },
     ];
 
     let cart = [];
