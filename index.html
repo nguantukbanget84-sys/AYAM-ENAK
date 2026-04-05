@@ -67,7 +67,7 @@
 
     let cart = [];
 
-    function renderMenu() {
+    function renderMenu(); {
       const el = document.getElementById("menu");
       el.innerHTML = "";
       menu.forEach((item, i) => {
